@@ -47,7 +47,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"abc"];
 
-    cell.textLabel.text=[NSString stringWithFormat:@"%第ld----行",indexPath.row];
+    cell.textLabel.text=[NSString stringWithFormat:@"第%ld----行",indexPath.row];
 
     return cell;
 }
