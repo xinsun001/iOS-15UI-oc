@@ -17,8 +17,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor redColor]} forState:UIControlStateSelected];
+    
 }
 
 - (void)viewDidLoad {
@@ -45,12 +44,38 @@
 
     //将数组传给UITabBarController
     self.viewControllers = vcArry;
-  
-    //颜色
-    [[UITabBar appearance] setBarTintColor:[UIColor greenColor]];
+    [UITabBar appearance].translucent=NO;//去掉tabbar的透明度
     
-    //图片
-//    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"bgImage.png"]];
+    if (@available(iOS 15.0, *)) {
+        UITabBarAppearance *tabBarAppearanc = [UITabBarAppearance new];
+        
+        //颜色
+        tabBarAppearanc.backgroundColor = [UIColor greenColor];
+        NSDictionary *dictM = @{ NSForegroundColorAttributeName:[UIColor redColor]};
+        tabBarAppearanc.stackedLayoutAppearance.selected.titleTextAttributes = dictM;
+//        tabBarAppearanc.stackedLayoutAppearance.normal.titleTextAttributes = .....
+        
+//        //图片
+//        tabBarAppearanc.backgroundImage = [UIImage imageNamed:@"bgImage.png"];
+//        tabBarAppearanc.backgroundImageContentMode = UIViewContentModeScaleToFill;
+//
+        self.tabBar.scrollEdgeAppearance = tabBarAppearanc;
+        self.tabBar.standardAppearance = tabBarAppearanc;
+    } else {
+        // Fallback on earlier versions
+        
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor redColor]} forState:UIControlStateSelected];
+        
+        //颜色
+        [[UITabBar appearance] setBarTintColor:[UIColor greenColor]];
+
+        //图片
+    //    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"bgImage.png"]];
+    }
+    
+  
+    
     
     
 
