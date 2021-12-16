@@ -51,14 +51,16 @@
         
         //颜色
         tabBarAppearanc.backgroundColor = [UIColor greenColor];
-        NSDictionary *dictM = @{ NSForegroundColorAttributeName:[UIColor redColor]};
-        tabBarAppearanc.stackedLayoutAppearance.selected.titleTextAttributes = dictM;
-//        tabBarAppearanc.stackedLayoutAppearance.normal.titleTextAttributes = .....
         
 //        //图片
 //        tabBarAppearanc.backgroundImage = [UIImage imageNamed:@"bgImage.png"];
 //        tabBarAppearanc.backgroundImageContentMode = UIViewContentModeScaleToFill;
-//
+        
+        
+        NSDictionary *dictM = @{ NSForegroundColorAttributeName:[UIColor redColor]};
+        tabBarAppearanc.stackedLayoutAppearance.selected.titleTextAttributes = dictM;
+//        tabBarAppearanc.stackedLayoutAppearance.normal.titleTextAttributes = .....
+
         self.tabBar.scrollEdgeAppearance = tabBarAppearanc;
         self.tabBar.standardAppearance = tabBarAppearanc;
     } else {

@@ -20,12 +20,14 @@
         UINavigationBarAppearance *navBarApperance = [UINavigationBarAppearance new];
        // 颜色
         navBarApperance.backgroundColor = [UIColor redColor];
-        NSDictionary *dictM = @{ NSForegroundColorAttributeName:[UIColor blackColor]};
-        navBarApperance.titleTextAttributes = dictM;
 
         //图片
 //        navBarApperance.backgroundImage = [UIImage imageNamed:@"bgImage.png"];
 //        navBarApperance.backgroundImageContentMode = UIViewContentModeScaleToFill;
+        
+        
+        NSDictionary *dictM = @{ NSForegroundColorAttributeName:[UIColor blackColor]};
+        navBarApperance.titleTextAttributes = dictM;
         
         self.navigationController.navigationBar.standardAppearance = navBarApperance;
         self.navigationController.navigationBar.scrollEdgeAppearance = navBarApperance;
